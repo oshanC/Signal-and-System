@@ -1,0 +1,20 @@
+import numpy as np;
+import matplotlib.pyplot as plt;
+N = np.array([1,5,10,100])
+
+print(axes)
+x = np.linspace(-10,10,100)
+fig, axes = plt.subplots(2,2,sharex=True,figsize=(10, 5))
+count=0 #count for index of N
+for row in range(2):   
+    for col in range(2):
+        y = N[count] # get value from N array
+        count+=1
+        Sn=0
+        for n in range(1,y+1):
+            Sn += np.sin(n*x)/(n*np.pi)
+        axes[row,col].plot(x,Sn)
+        axes[row,col].set_title("N = {}".format(y))
+        axes[row,col].set_xlabel("x",x=1,y=1)
+        axes[row,col].set_ylabel("$ S_N(x)$",fontsize=10,x=3,y=1)
+        axes[row,col].grid(True)
